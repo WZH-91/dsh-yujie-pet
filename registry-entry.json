@@ -1,0 +1,33 @@
+{
+  "name": "dsh-yujie-pet",
+  "title": "带派桌宠",
+  "description": {
+    "zh": "右下角一只抠好背景的桌宠小人，每次回复结束蹦一下并喊一句「带派不，老铁」，点它也能立刻出声。",
+    "en": "A cut-out desk pet in the corner of the DSH Web UI that hops and shouts a voice line whenever a reply finishes; clicking it also plays the clip."
+  },
+  "repository": {
+    "url": "https://github.com/YOUR_ACCOUNT/dsh-yujie-pet"
+  },
+  "metadata": {
+    "category": "fun",
+    "keywords": [
+      "desktop-pet",
+      "voice",
+      "meme",
+      "ui"
+    ],
+    "labels": [],
+    "sortKeys": {}
+  },
+  "versions": [
+    {
+      "version": "1.0.0",
+      "source": {
+        "type": "npm"
+      },
+      "engines": {
+        "dsh": ">=0.2.1-rc.2"
+      }
+    }
+  ]
+}
