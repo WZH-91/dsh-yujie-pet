@@ -25,7 +25,6 @@ let player = null;
 const seenTypes = new Set();
 
 function log(line) {
-  if (!process.env.DSH_PET_DEBUG) return;
   try {
     appendFileSync(LOG_FILE, `${new Date().toISOString()} ${line}\n`, 'utf8');
   } catch (error) {
@@ -107,21 +106,28 @@ export function apply(ctx) {
     }
   });
 
-  ctx.effect(() => ctx.webServer.register({
-    kind: 'exact',
-    path: '/jiejie-pet/play',
-    handler: (req, res) => {
-      if (req.method !== 'POST') {
-        res.statusCode = 405;
-        res.end();
-        return;
-      }
-      log('route POST /jiejie-pet/play');
-      playVoice('client-click');
-      res.statusCode = 204;
-      res.end();
-    },
-  }));
+  ctx.effect(() => {
+    try {
+      return ctx.webServer.register({
+        kind: 'exact',
+        path: '/jiejie-pet/play',
+        handler: (req, res) => {
+          if (req.method !== 'POST') {
+            res.statusCode = 405;
+            res.end();
+            return;
+          }
+          log('route POST /jiejie-pet/play');
+          playVoice('client-click');
+          res.statusCode = 204;
+          res.end();
+        },
+      });
+    } catch (error) {
+      log('route-error ' + String((error && error.stack) || error));
+      throw error;
+    }
+  });
 
   ctx.on('session/event', (session, event) => {
     const type = event && event.type;
