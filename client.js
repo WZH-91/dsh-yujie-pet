@@ -1,5 +1,5 @@
 window.__ModuleLoader__.load({
-  id: '@local/dsh-yujie-pet5',
+  id: 'dsh-yujie-pet',
   factory(require) {
     const React = require('react');
     const h = React.createElement;
@@ -226,12 +226,12 @@ window.__ModuleLoader__.load({
       inject: ['slots', 'sessions', 'locale'],
       apply(ctx) {
         ctx.slots.inject('shell.overlay', () => ctx.slots.register(
-          { name: 'shell.overlay', id: 'dsh-yujie-pet5', order: 51 },
+          { name: 'shell.overlay', id: 'dsh-yujie-pet', order: 51 },
           (props) => h(YujiePet, { ...props, hostCtx: ctx }),
         ));
 
         ctx.slots.inject('conversation.composer.dock', () => ctx.slots.register(
-          { name: 'conversation.composer.dock', id: 'dsh-yujie-pet5-watch', order: 51 },
+          { name: 'conversation.composer.dock', id: 'dsh-yujie-pet-watch', order: 51 },
           (props) => h(ReplyWatcher, { ...props, hostCtx: ctx }),
         ));
       },
