@@ -22,8 +22,11 @@
   "versions": [
     {
       "version": "1.0.0",
+      "publishTimestamp": 1792762145,
       "source": {
-        "type": "npm"
+        "type": "git",
+        "url": "https://github.com/WZH-91/dsh-yujie-pet.git",
+        "commit": "8acba03658b0d3f92b75f8a2e8c3820fdcd939d7"
       },
       "engines": {
         "dsh": ">=0.2.1-rc.2"
